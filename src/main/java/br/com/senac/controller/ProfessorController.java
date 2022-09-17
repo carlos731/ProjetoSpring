@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.senac.entity.Professor;
 import br.com.senac.service.ProfessorService;
 
 @Controller
@@ -21,6 +23,19 @@ public class ProfessorController {
 		ModelAndView mv = new ModelAndView("professor/paginaListaProfessores");
 		mv.addObject("professores", professorService.buscarTodosProfessores());
 		return mv;
+	}
+	
+	@GetMapping("/cadastrarProfessor")
+	public ModelAndView cadastrarProfessor() {
+		ModelAndView mv = new ModelAndView("professor/cadastrarProfessor");
+		mv.addObject("professor", new Professor());
+		return mv;
+	}
+	
+	@PostMapping("/salvar")
+	public ModelAndView salvarCurso(Professor professor) {
+		professorService.salvar(professor);
+		return listarTodosProfessores();
 	}
 	
 	@GetMapping("/excluir/{id}")
