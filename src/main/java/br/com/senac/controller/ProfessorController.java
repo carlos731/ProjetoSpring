@@ -39,8 +39,29 @@ public class ProfessorController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluirCurso(@PathVariable("id") Integer id) {
+	public ModelAndView excluirProfessor(@PathVariable("id") Integer id) {
 		professorService.deletarPorId(id);
-		return "redirect:/professor/listarProfessores";
+		return listarTodosProfessores();
 	}
+	
+	@GetMapping("/paginaAlterar/{id}")
+	public ModelAndView alterarProfessor(@PathVariable("id") Integer id) {
+		ModelAndView mv = new ModelAndView("professor/alterarProfessor");
+		mv.addObject("professor", professorService.buscarPorId(id));
+		return mv;
+	}
+	
+	@PostMapping("/salvarAlteracao")
+	public ModelAndView alterar(Professor professorAlterado) {
+		professorService.salvarAlteracao(professorAlterado);
+		return listarTodosProfessores();
+	}
+	
+	//Meu metodo de excluir
+		//@GetMapping("/excluir/{id}")
+		//public String excluirCurso(@PathVariable("id") Integer id) {
+			//professorService.deletarPorId(id);
+			//return "redirect:/professor/listarProfessores";
+		//}
+		
 }

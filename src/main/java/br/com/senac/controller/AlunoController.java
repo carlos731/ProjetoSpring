@@ -39,8 +39,28 @@ public class AlunoController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluirAluno(@PathVariable("id") Integer id) {
+	public ModelAndView excluirAluno(@PathVariable("id") Integer id) {
 		alunoService.deletarPorId(id);
-		return "redirect:/aluno/listarAlunos";
+		return listaTodosAlunos();
 	}
+	
+	@GetMapping("/paginaAlterar/{id}")
+	public ModelAndView alterarAluno(@PathVariable("id") Integer id) {
+		ModelAndView mv = new ModelAndView("aluno/alterarAluno");
+		mv.addObject("aluno", alunoService.buscarPorId(id));
+		return mv;
+	}
+	
+	@PostMapping("/salvarAlteracao")
+	public ModelAndView alterar(Aluno alunoAlterado) {
+		alunoService.salvarAlteracao(alunoAlterado);
+		return listaTodosAlunos();
+	}
+	
+	//Meu metodo de excluir
+	//@GetMapping("/excluir/{id}")
+	//public String excluirAluno(@PathVariable("id") Integer id) {
+		//alunoService.deletarPorId(id);
+		//return "redirect:/aluno/listarAlunos";
+	//}
 }	

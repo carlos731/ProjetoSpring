@@ -49,4 +49,11 @@ public class CursoService {
 		curso.setNome(cursoAlterado.getNome());
 		return salvar(curso);
 	}
+	//Atualizar do Struct
+	public Curso salvarAlteracao(Curso cursoAlterado) {
+		Curso curso = buscarPorId(cursoAlterado.getId());
+		curso.setNome(cursoAlterado.getNome());
+		return salvar(curso);
+	}
+	
 }

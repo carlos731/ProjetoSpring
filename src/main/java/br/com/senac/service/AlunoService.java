@@ -31,7 +31,7 @@ public class AlunoService {
 	}
 	//Deletar Aluno
 	public void deletarPorId(Integer id) {
-        Optional<Aluno> aluno = alunoRepository.findById(id);
+        Optional<Aluno> aluno = alunoRepository.findById(id);//Não precisa
         alunoRepository.deleteById(id);
     }
 	//Atualizar Aluno

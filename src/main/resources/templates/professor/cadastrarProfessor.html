@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Cadastro de Alunos</title>
+		<title>Cadastro de Professores</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
@@ -9,10 +9,10 @@
 		<div class="container">
 			<div class="panel-default">
 				<div class="text-center">
-					<h1 class="h4 text-gray-900 mb-4">Cadastrar Aluno</h1>
+					<h1 class="h4 text-gray-900 mb-4">Cadastrar Professor</h1>
 				</div>
 				<div class="panel-body">
-					<form th:action="@{/aluno/salvar}" class="form-horizontal" th:object="${professor}" method="post" style="margin: 10px;">
+					<form th:action="@{/professor/salvar}" class="form-horizontal" th:object="${professor}" method="post" style="margin: 10px;">
 						<div class="form-group">
 							<fieldset>
 								<div class="form-group row">

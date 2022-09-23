@@ -38,9 +38,29 @@ public class CursoController {
 		return listarTodosCursos();
 	}
 	
-	@GetMapping("/excluir/{id}") 
-	public String excluirCurso(@PathVariable("id") Integer id) {
+	@GetMapping("/excluir/{id}")
+	public ModelAndView excluirCurso(@PathVariable("id") Integer id) {
 		cursoService.deletarPorId(id);
-		return "redirect:/curso/listarCursos";
+		return listarTodosCursos();
 	}
+	
+	@GetMapping("/paginaAlterar/{id}")
+	public ModelAndView alterarCurso(@PathVariable("id") Integer id) {
+		ModelAndView mv = new ModelAndView("curso/alterarCurso");
+		mv.addObject("curso", cursoService.buscarPorId(id));
+		return mv;
+	}
+	
+	@PostMapping("/salvarAlteracao")
+	public ModelAndView alterar(Curso cursoAlterado) {
+		cursoService.salvarAlteracao(cursoAlterado);
+		return listarTodosCursos();
+	}
+	
+	//Meu metodo de excluir
+	//@GetMapping("/excluir/{id}") 
+	//public String excluirCurso(@PathVariable("id") Integer id) {
+		//cursoService.deletarPorId(id);
+		//return "redirect:/curso/listarCursos";
+	//}
 }

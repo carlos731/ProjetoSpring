@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Listagem de Alunos</title>
+		<title>Listagem de Cursos</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
@@ -9,7 +9,7 @@
 		<div class="container">
 			<div class="panel-default">
 				<div class="text-center">
-					<h1 class="h4 text-gray-900 mb-4">Listagem de Alunos</h1>
+					<h1 class="h4 text-gray-900 mb-4">Listagem de Cursos</h1>
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive">
@@ -27,8 +27,9 @@
 									<td th:text="${curso.nome}"></td>
 									<td>
 										<div class="btn-group pull-right">
-											<a class="btn btn-sm btn-primary">Alterar</a>
-											<a th:href="@{excluir/{id}(id=${curso.id})}" class="delete btn btn-sm btn-danger">Excluir</a>
+											<a class="btn btn-sm btn-primary" th:href="@{paginaAlterar/{idCurso}(idCurso=${curso.id})}">Alterar</a>
+											<!--<a th:href="@{excluir/{id}(id=${aluno.id})}" class="delete btn btn-sm btn-danger">Excluir</a>-->
+											<a th:href="@{/curso/excluir/{idCurso}(idCurso=${curso.id})}" class="delete btn btn-sm btn-danger">Excluir</a>
 										</div>
 									</td>
 								</tr>
