@@ -53,6 +53,7 @@ public class CursoService {
 	public Curso salvarAlteracao(Curso cursoAlterado) {
 		Curso curso = buscarPorId(cursoAlterado.getId());
 		curso.setNome(cursoAlterado.getNome());
+		curso.setProfessor(cursoAlterado.getProfessor());
 		return salvar(curso);
 	}
 	

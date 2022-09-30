@@ -18,13 +18,14 @@
 								<tr>
 									<th>ID</th>
 									<th>NOME</th>
-									<th></th>
+									<th>PROFESSOR</th>
 								</tr>	
 							</thead>
 							<tbody>
 								<tr th:each="curso: ${cursos}">
 									<td th:text="${curso.id}"></td>
 									<td th:text="${curso.nome}"></td>
+									<td th:text="${curso.professor.nome}"></td>
 									<td>
 										<div class="btn-group pull-right">
 											<a class="btn btn-sm btn-primary" th:href="@{paginaAlterar/{idCurso}(idCurso=${curso.id})}">Alterar</a>

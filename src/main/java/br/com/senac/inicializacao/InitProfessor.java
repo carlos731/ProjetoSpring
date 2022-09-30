@@ -50,7 +50,7 @@ public class InitProfessor implements ApplicationListener<ContextRefreshedEvent>
 		System.out.println(prof4.getNome());
 		
 		//deleção por id
-		professorService.deletarPorId(2);
+		//professorService.deletarPorId(2);
 	
 		//Atualizar por id
 		//aluno1.setNome("Carlos");

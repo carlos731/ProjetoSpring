@@ -18,7 +18,15 @@
 								<div class="form-group row">
 									<label>Nome</label>
 									<input type="text" th:field="*{nome}" class="form-control input-sm" placeholder="Informe o nome" maxLenght="50"/>
-									
+								</div>
+								<div class="form-group">
+									<label>
+										Professores
+									</label>
+									<select class="form-control" th:field="*{professor}">
+										<option value="">Selecione um professor</option>
+										<option th:each="prof : ${professores}" th:value="${prof.id}" th:text="${prof.nome}"></option><!--ForEach-->
+									</select>
 								</div>
 							</fieldset>
 							<div align="center">
