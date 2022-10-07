@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.senac.entity.Turma;
+import br.com.senac.service.CursoService;
 import br.com.senac.service.TurmaService;
 
 @Controller
@@ -17,6 +18,9 @@ public class TurmaController {
 	
 	@Autowired
 	private TurmaService turmaService;
+	
+	@Autowired 
+	private CursoService cursoService;
 	
 	@GetMapping("/listarTurmas")//http://localhost:8080/turma/listarTurmas
 	public ModelAndView listarTodasTurmas() {
@@ -29,6 +33,7 @@ public class TurmaController {
 	public ModelAndView cadastrarTurma() {
 		ModelAndView mv = new ModelAndView("turma/cadastrarTurma");
 		mv.addObject("turma", new Turma());
+		mv.addObject("listaCursos", cursoService.buscarTodos());
 		return mv;
 	}
 	

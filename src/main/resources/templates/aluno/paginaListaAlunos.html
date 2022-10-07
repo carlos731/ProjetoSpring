@@ -18,16 +18,17 @@
 								<tr>
 									<th>ID</th>
 									<th>NOME</th>
-									<th></th>
+									<th>TURMA</th>
 								</tr>	
 							</thead>
 							<tbody>
 								<tr th:each="aluno: ${alunos}">
 									<td th:text="${aluno.id}"></td>
 									<td th:text="${aluno.nome}"></td>
+									<td th:text="${aluno.turma.nome}"></td>
 									<td>
 										<div class="btn-group pull-right">
-											<a class="btn btn-sm btn-primary" th:href="@{paginaAlterar/{idAluno}(idAluno=${aluno.id})}">Alterar</a>
+											<a class="btn btn-sm btn-primary" th:href="@{/aluno/paginaAlterar/{idAluno}(idAluno=${aluno.id})}">Alterar</a>
 											<!--<a th:href="@{excluir/{id}(id=${aluno.id})}" class="delete btn btn-sm btn-danger">Excluir</a>-->
 											<a th:href="@{/aluno/excluir/{idAluno}(idAluno=${aluno.id})}" class="delete btn btn-sm btn-danger">Excluir</a>
 										</div>

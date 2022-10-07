@@ -22,7 +22,7 @@ public class InitTurma implements ApplicationListener<ContextRefreshedEvent>{
 	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		
+		/*
 		Turma turma1 = new Turma();
 		turma1.setNome("3001");
 		
@@ -36,7 +36,7 @@ public class InitTurma implements ApplicationListener<ContextRefreshedEvent>{
 		turmaService.salvar(turma1);
 		turmaService.salvar(turma2);
 		turmaService.salvar(turma3);
-		
+		*/
 		List<Turma> listaTurmas = turmaService.buscarTodasTurmas();
 		
 		//repo.saveAll(Arrays.asList(aluno1, aluno2, aluno3));
@@ -52,14 +52,14 @@ public class InitTurma implements ApplicationListener<ContextRefreshedEvent>{
 		System.out.println(busca.getNome());
 		
 		//deleção por id
-		turmaService.deletarPorId(3);
+		//turmaService.deletarPorId(3);
 		
 		//Atualização por id
-		Turma turmaAlterada = new Turma();
-		turmaAlterada.setId(1);
-		turmaAlterada.setNome("3004");
+		//Turma turmaAlterada = new Turma();
+		//turmaAlterada.setId(1);
+		//turmaAlterada.setNome("3004");
 		
-		turmaService.salvar(turmaAlterada);
+		//turmaService.salvar(turmaAlterada);
 		
 	}
 }

@@ -2,11 +2,12 @@ package br.com.senac.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Aluno implements Serializable {
@@ -18,6 +19,10 @@ public class Aluno implements Serializable {
 	private Integer id;
 	
 	private String nome;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_turma", referencedColumnName="id")
+	private Turma turma;
 
 	public Integer getId() {
 		return id;
@@ -33,6 +38,14 @@ public class Aluno implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 	
 	
