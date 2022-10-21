@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cadastro de Avaliações</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="panel-default">
+				<div class="text-center">
+					<h1 class="h4 text-gray-900 mb-4">Lançar Nota</h1>
+				</div>
+				<div class="panel-body">
+					<form th:object="${avaliacao}" th:action="@{/avaliacoes/save}" class="form-horizontal" method="post" style="margin: 10px;">
+						<div class="form-group">
+							<label for="alunos">Aluno: </label>
+							<select name="alunoCurso.aluno.id" id="alunos" class="form-control">
+								<option th:each="aluno : ${alunos}" th:value="${aluno.id}" th:text="${aluno.nome}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="alunos">Curso: </label>
+							<select name="alunoCurso.curso.id" id="cursos" class="form-control">
+								<option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="alunos">Conceito: </label>
+							<input th:field="*{conceito}" id="conceito" class="form-control" type="text" placeholder="Exemplo: B"/>
+						</div>
+						<div class="form-group">
+							<input id="enviar" class="btn btn-primary" type="submit" value="Salvar"/>
+						</div>
+					</form>
+					<a class="btn btn-sm btn-danger" th:href="@{/curso/listarCursos}">Voltar</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

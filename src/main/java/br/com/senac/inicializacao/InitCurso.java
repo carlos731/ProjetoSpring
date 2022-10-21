@@ -39,7 +39,7 @@ public class InitCurso implements ApplicationListener<ContextRefreshedEvent>{
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		
 		//Cursos
-		Curso curso1 = new Curso();
+		/*Curso curso1 = new Curso();
 		curso1.setNome("Matemática");
 		
 		Curso curso2 = new Curso();
@@ -47,9 +47,10 @@ public class InitCurso implements ApplicationListener<ContextRefreshedEvent>{
 		
 		Curso curso3 = new Curso();
 		curso3.setNome("Quimica");
-	
+	*/
 	
 		//Professores
+		/*
 		Professor p1 = new Professor();
 		p1.setNome("Lucas");
 		
@@ -58,22 +59,25 @@ public class InitCurso implements ApplicationListener<ContextRefreshedEvent>{
 		
 		Professor p3 = new Professor();
 		p3.setNome("Claudio");
-		
+		*/
 		//opção 2 para salvar
 		//professorRepository.saveAll(Arrays.asList(p1, p2 , p3));
 		
 		//Salvando professor
+		/*
 		professorService.salvar(p1);
 		professorService.salvar(p2);
 		professorService.salvar(p3);
-		
+		*/
 		
 		//referenciando id do professor no curso
+		/*
 		curso1.setProfessor(p1);
 		curso2.setProfessor(p3);
 		curso3.setProfessor(p2);
-		
+		*/
 		//Teste salvar no banco
+		/*
 		cursoService.salvar(curso1);
 		cursoService.salvar(curso2);
 		cursoService.salvar(curso3);
@@ -89,9 +93,10 @@ public class InitCurso implements ApplicationListener<ContextRefreshedEvent>{
 		List<Curso> listaCursos3 = new ArrayList<>();
 		listaCursos3.add(curso2);
 		listaCursos3.add(curso3);
-		
+		*/
 		//Turmas
-		Turma turma1 = new Turma();
+		
+		/*
 		turma1.setNome("3001");
 		turma1.setCursos(listaCursos1);
 		turmaService.salvar(turma1);
@@ -105,12 +110,13 @@ public class InitCurso implements ApplicationListener<ContextRefreshedEvent>{
 		turma3.setNome("3003");
 		turma1.setCursos(listaCursos3);
 		turmaService.salvar(turma2);
-		
+		*/
 		//Teste salvar no banco
+		/*
 		turmaService.salvar(turma1);
 		turmaService.salvar(turma2);
 		turmaService.salvar(turma3);
-		
+		*/
 		
 		
 		List<Curso> listaCursos = cursoService.buscarTodos();
@@ -136,6 +142,6 @@ public class InitCurso implements ApplicationListener<ContextRefreshedEvent>{
 		//cursoAlterado.setNome("Portugues");
 		
 		//cursoService.salvar(cursoAlterado);
-		
+	
 	}
 }
